@@ -38,8 +38,8 @@ This repository contains an **AI-powered automation system** that detects compli
 Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/infra-drift-detector.git
-   cd infra-drift-detector
+   git clone https://github.com/jprassanakumar/cloud-drift-detector.git
+   cd cloud-drift-detector
 ```
 
 
