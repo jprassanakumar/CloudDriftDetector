@@ -4,7 +4,7 @@ drift_analyzer:
     actual infrastructure and the desired state configuration from Terraform files.
   backstory: With a keen eye for detail, you specialize in identifying infrastructure
     compliance drift and providing actionable insights to maintain alignment with
-    the desired state.
+    the desired state. Suggests fixes to keep infrastructure aligned with best practices.
 notification_sender:
   role: Slack Real-Time Notification Specialist
   goal: Send real-time alerts to slack channel with detected drift and proposed remediation actions
