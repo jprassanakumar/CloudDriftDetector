@@ -1,8 +1,48 @@
-# AiDrivenInfrastructureComplianceAndDriftDetection Crew
+# AI-Driven Infrastructure Compliance & Drift Detection
 
-Welcome to the AiDrivenInfrastructureComplianceAndDriftDetection Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+## Overview
 
-## Installation
+This repository contains an **AI-powered automation system** that detects compliance drift in **Terraform-managed infrastructure** and sends real-time notifications via Slack. It utilizes **CrewAI** to orchestrate the detection and notification workflow.
+
+### Key Features:
+- **Automated Terraform Compliance Drift Detection**
+- **Works with Any Cloud or On-Prem Infrastructure Managed by Terraform**
+- **CrewAI Orchestration for Analysis & Notifications**
+- **Real-time Slack Alerts for Drift Remediation**
+- **Modular, Easily Extendable Architecture**
+
+
+---
+
+## How It Works
+
+1. **Drift Analysis**  
+   - The **Drift Analyzer Agent** inspects Terraform output and identifies configuration discrepancies.
+
+2. **Notification Dispatch**  
+   - If drift is detected, the **Notification Sender Agent** formats the results and sends an alert to a Slack channel.
+
+---
+
+## Installation & Setup
+
+### Prerequisites
+
+- Python 3.8+
+- [`crewai`](https://github.com/crewai) package installed
+- Terraform CLI installed
+- A Slack webhook URL for notifications
+
+### Installation Steps
+
+Clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/infra-drift-detector.git
+   cd infra-drift-detector
+```
+
+
 
 Ensure you have Python >=3.10 <=3.13 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
 
@@ -21,12 +61,16 @@ crewai install
 ### Customizing
 
 **Add your `OPENAI_API_KEY` into the `.env` file**
-
-- Modify `src/ai_driven_infrastructure_compliance_and_drift_detection/config/agents.yaml` to define your agents
-- Modify `src/ai_driven_infrastructure_compliance_and_drift_detection/config/tasks.yaml` to define your tasks
-- Modify `src/ai_driven_infrastructure_compliance_and_drift_detection/crew.py` to add your own logic, tools and specific args
-- Modify `src/ai_driven_infrastructure_compliance_and_drift_detection/main.py` to add custom inputs for your agents and tasks
-
+### Update the agents.yaml file:
+```bash
+workflow:
+  task:
+    slack_notification_endpoint: "https://hooks.slack.com/services/YOUR/WEBHOOK/URL"
+    parameters:
+      terraform_directory: "/path/to/your/terraform/project"
+      variable_files:
+        - "variables.tfvars"
+```
 ## Running the Project
 
 To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
@@ -37,18 +81,3 @@ $ crewai run
 
 This command initializes the ai_driven_infrastructure_compliance_and_drift_detection Crew, assembling the agents and assigning them tasks as defined in your configuration.
 
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
-
-## Understanding Your Crew
-
-The ai_driven_infrastructure_compliance_and_drift_detection Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
-
-## Support
-
-For support, questions, or feedback regarding the AiDrivenInfrastructureComplianceAndDriftDetection Crew or crewAI.
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
-
-Let's create wonders together with the power and simplicity of crewAI.
