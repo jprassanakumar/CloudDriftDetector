@@ -1,0 +1,19 @@
+---
+analyze_drift_task:
+  description: Read and analyze the filtered Terraform plan output {terraform_output} to identify any
+    compliance drift between the actual infrastructure and the desired state defined
+    in Terraform files.
+  expected_output: A detailed report on detected compliance drift and suggested remediation
+    actions.
+  async_execution: false
+  agent: drift_analyzer
+send_notification_task:
+  description: Send real-time alerts with the analysis results, including detected
+    drift and proposed actions, to the specified notification endpoint {notification_endpoint}. 
+    Frame the output in a beautiful readable format[MUST].
+  expected_output: Real-time alerts sent to {notification_endpoint} with detailed
+    drift analysis and proposed remediation actions.
+  async_execution: false
+  agent: notification_sender
+  context:
+  - analyze_drift_task
