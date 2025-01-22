@@ -53,7 +53,7 @@ def run():
     """
     Run the crew.
     """
-    workflow_config = load_workflow_config("/home/ubuntu/dd/src/ai_driven_infrastructure_compliance_and_drift_detection/config/agents.yaml")
+    workflow_config = load_workflow_config("./config/agents.yaml")
     terraform_directory = workflow_config["workflow"]["task"]["parameters"]["terraform_directory"]
     variable_files = workflow_config["workflow"]["task"]["parameters"]["variable_files"]
     tf_stdout = detect_drift(terraform_directory, variable_files)
